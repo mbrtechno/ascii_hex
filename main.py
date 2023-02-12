@@ -1,4 +1,8 @@
-
-h = '005A001000'
-a = bytes.fromhex(h).decode("ASCII")  # testar isso para transformar em xxx.bin
-print(a)
+arquivo = open("dados.txt", "r")
+result = open("resultado.bin", "w")
+for linha in arquivo:
+    linha = linha.replace("\n", "")
+    print(linha)
+    result.write(bytes.fromhex(linha).decode("ASCII"))  # testar isso para transformar em xxx.bin
+arquivo.close()
+result.close()
